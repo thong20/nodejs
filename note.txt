@@ -53,9 +53,47 @@ Trong file /index.js ta code:
 app.use(express.static('public'))
 
 
+===== Middleware ============================================
+Bài 13: Middleware
+res.locals dùng để truyền tham số từ Middleware này sang Middleware khác
+vd: Từ middleware user.validate.js truyền 1 object sang controller.postCreate
+- File user.validate.js:
+module.exports.postCreate = (req, res, next) => {
+  ...
 
+  res.locals.thong20 = 'aabb'
+  
+  next()
+}
 
+- Trong controller.postCreate:
+module.exports.postCreate = (req, res) => {
+  
+  console.log(res.locals) // Kết quả: { thong20: 'aabb' }
 
+}
+
+===== Cookie ===================================
+Hoạt động:
+- Khi client request 1 đường link, thì server
+sẽ trả về cho Browser 1 Response Headers có item là Set-cookie
+và giá trị của Set-cookie là 1 string (string này hiểu như là
+1 mã định dạng cho mỗi client), và item này có thời hạn
+vd: Inspect => Tab Network => ở cột 'Name' ta chọn link có cookie
+=> phần bên phải, chọn Tab Headers
+=> xổ Responese Headers, ta sẽ thấy Server gửi 1 item trong Responese
+Headers là:
+Set-Cookie: giá_trị_string; 
+- Lúc này Browser sẽ tự lưu lại item này
+- Khi client request tiếp 1 địa chỉ (cùng tên miền) thì item này sẽ được gửi cho
+Server trong Request Headers, để Server xác nhận đó là bạn nếu thời hạn của item
+này chưa hết
+
+===== Page login ===================================
+khi người dùng nhập email và password, sau đó nhấn nút login
+chương trình sẽ gửi 1 post ở đường dẫn localhost:3000/login
+vì vậy ta phải khai báo 1 route có method post ở đường dẫn này:
+router.post('/post', controller.login)
 
 
 
