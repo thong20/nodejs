@@ -1,0 +1,47 @@
+
+===== Syntax ==============================================
+tên_thẻ nội_dung_của_thẻ
+
+===== Thêm thuộc tính ======================================
+- Thêm thuộc tính cho thẻ, ta chỉ việc đưa thuộc
+tính vào cặp dấu ngoặc tròn ():
+tên_thẻ(tên_thuộc_tính="giá_trị") nội_dung_của_thẻ
+vd1: ta thêm thuộc tính href cho thẻ <a>
+a(href="google.com") Google
+vd2: ta thêm thuộc tính action và method cho thẻ <form>
+form(action="/users/search", method="GET")
+
+===== Duyệt array trong file .pug =================================
+Để duyệt mảng ta sử dụng vòng lặp: each in
+link: https://pugjs.org/language/iteration.html
+- Trong file /index.js:
+app.get('/users', (req, res) => {
+  res.render('users/index', {
+    users: [
+      {id: 1, name: 'Thinh'},
+      {id: 2, name: 'thong20'}
+    ]
+  })
+})
+
+- Trong file views/users/index.js
+h1 Users Page
+  ul
+    each item in users
+      li= item.name
+
+===== Nối chuỗi ===================================
+để nối chuỗi ta sử dụng toán tử +
+vd1:
+a(href='/users/' + user.id) View
+
+
+
+
+
+
+
+
+
+
+

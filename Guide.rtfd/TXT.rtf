@@ -1,0 +1,96 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2576
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww20180\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 l\uc0\u7845 y id c\u7911 a 1 item:\
+Khi click v\'e0o View c\uc0\u7911 a 1 item, n\'f3 s\u7869 \
+chuy\uc0\u7875 n \u273 \u7871 n \u273 \u432 \u7901 ng d\u7851 n b\u7857 ng th\u7867  a trong file .pug nh\u432  sau:\
+a(href="/users/" + item.id) View\
+v\'ed d\uc0\u7909 : ta c\'f3 <li> l\'e0: \{id: 2, name: "thong20"\}\
+khi ta click l\'ean th\uc0\u7867  a n\'f3 s\u7869  chuy\u7875 n ta \u273 \u7871 n: localhost:3000/users/2\
+v\uc0\u7853 y ta \u273 \'e3 c\'f3 id c\u7911 a thong20 l\'e0 2 tr\'ean address\
+\uc0\u272 \u7875  l\u7845 y gi\'e1 tr\u7883  trong express ta s\u7919  d\u7909 ng c\'fa ph\'e1p:\
+:<t\'ean_bi\uc0\u7871 n>\
+v\'e0 req.params \uc0\u273 \u7875  l\u7845 y gi\'e1 tr\u7883  c\u7911 a <t\'ean_bi\u7871 n>\
+\
+Khi ta click v\'e0o n\'fat View, ta c\'f3 address: localhost:3000/users/2\
+v\uc0\u7853 y 2 l\'e0 gi\'e1 tr\u7883  c\u7911 a key t\'ean l\'e0 id (m\u7903  db.json \u273 \u7875  x\'e1c \u273 \u7883 nh)\
+V\uc0\u7853 y trong express code:\
+app.get('/users/:uuid', (req, res) => \{\
+  console.log(req.params)\
+\})\
+=> K\uc0\u7871 t qu\u7843 :\
+\{ uuid: '2' \}\
+\
+===== Express Router ===============================================\
+D\'f9ng \uc0\u273 \u7875  chia nh\u7887  ch\u432 \u417 ng tr\'ecnh\
+\
+\
+===== Template Layout ==============================================\
+Gi\uc0\u7889 ng nh\u432  ch\'e8n Component v\'e0o 1 component trong React\
+vd: ta c\'f3 file cha.pug c\uc0\u7847 n ch\'e8n 1 file con.pug ch\u7913 a ph\u7847 n n\u7897 i dung c\u7911 a b\'e0i vi\u7871 t\
+- \uc0\u7903  file cha.pub, ta s\u7917  d\u7909 ng c\'fa ph\'e1p: block <t\'ean>\
+html\
+  head\
+  body\
+    block menu\
+    block content\
+    block footer\
+\
+- Gi\uc0\u7843  s\u7917  ta c\'f3 file con2.pub ch\u7913 a n\u7897 i dung c\u7847 n n\u7857 m \u7903  v\u7883  tr\'ed 'content'\
+ta ch\uc0\u7881  vi\u7879 c khai b\'e1o extends v\'e0 block content nh\u432  sau:\
+\
+extends path_to_cha.pug\
+block content\
+  h1 N\uc0\u7897 i_dung_b\'e0i_vi\u7871 t\
+\
+- Ta c\'f3 th\'eam file con1.pug ch\uc0\u7913 a navbar n\u7857 m \u7903  v\u7883  tr\'ed 'menu':\
+\
+extends path_to_cha.pug\
+block menu\
+  nav\
+    navbar N\uc0\u7897 i_dung_navbar\
+\
+===== L\uc0\u432 u tr\u7919  c\'e1c file Static trong folder 'public' =================================\
+B\'e0i 11: Static files\
+Trong file /index.js ta code:\
+app.use(express.static('public'))\
+\
+\
+===== Kh\uc0\u7855 c ph\u7909 c l\u7895 i ======================================\
+l\uc0\u7895 i:\
+TypeError: Cannot set property 'id' of undefined\
+ho\uc0\u7863 c: req.body l\'e0 undefined\
+\
+- L\uc0\u7895 i n\'e0y x\u7843 y ra khi ta submit 1 form\
+- C\'e1ch kh\uc0\u7855 c ph\u7909 c:\
+  - Ki\uc0\u7875 m tra \u273 \'e3 c\'e0i body-parser ch\u432 a\
+  - Khai b\'e1o c\'e1c d\'f2ng sau \uc0\u7903  tr\'ean router\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Lỗi-req.body undefined \width18480 \height6940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}�}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+}

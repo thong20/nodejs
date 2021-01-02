@@ -1,0 +1,99 @@
+=== Method render([path], <pass parameter>) ===========
+- Method này được sử dụng khi ta sử dụng template engines
+nói cách khác là file .pug
+- path là đường dẫn đến file cần hiển thị theo tham số thứ
+nhất của method get()
+vd:
+app.set('view engine', 'pug')
+app.set('views', './views')
+app.get('/', (req, res) => {
+  res.render('index', {name: 'ABC123'})
+})
+=> giải thích: khi address là root, thì hệ thống sẽ tìm đến
+file index.pug trong folder views, do ta đã định nghĩa khi
+cấu hình "template engines" qua app.set() ở trên
+=> cấu trúc thư mục:
+/
+|_ views
+    |_ index.pug
+|_ index.js
+
+=> trong file index.pug, để truy cập tham số truyền ta sử dụng cú pháp:
+  - #{tên_biến}
+    Cú pháp này được sử dụng để nối với 1 string
+vd:
+html
+  body
+    h1 Hello #{name}
+=> Kết quả: <h1>Hello ABC123</h1>
+  - = tên_biến
+vd:
+// trong file /index.js
+app.get('/', (req, res) => {
+  res.render('index', {title: 'ABC123', name: 'thong20'})
+})
+
+// trong file views/users/index.pug
+html
+  head
+    title= title
+  body
+    h1= message
+
+
+===== Điều hướng trang =====================
+res.redirect('path')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+nodemon
+- "mon" ở đây là monitor
+- link: https://github.com/remy/nodemon
+- Chức năng: hệ thống node server sẽ tự restart
+lại khi có sự thay đổi code trong ứng dụng của
+nodejs
+- Cài đặt:
+npm install --save-dev nodemon => Enter (recommended)
+npm install -g nodemon => Enter
+
+===== restart multible time ====================
+lý do, có thể là khi vừa start hệ thống,
+hệ thống sẽ ghi dữ liệu vào file db.json,
+như vậy file db.json có sự thay đổi => dẫn đến
+server sẽ restart, tạo thành vòng lặp
+- Để khắc phục, ta chỉ việc cấu hình cho nodemon
+bỏ qua file db.json là xong:
+  Tạo file nodemon.json tại thư mục root
+=> gõ nội dung sau:
+{
+  "ignore": ["db.json"]
+}
+=> Save lại => restart lại node server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

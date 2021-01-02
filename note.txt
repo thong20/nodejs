@@ -1,0 +1,63 @@
+lấy id của 1 item:
+Khi click vào View của 1 item, nó sẽ
+chuyển đến đường dẫn bằng thẻ a trong file .pug như sau:
+a(href="/users/" + item.id) View
+ví dụ: ta có <li> là: {id: 2, name: "thong20"}
+khi ta click lên thẻ a nó sẽ chuyển ta đến: localhost:3000/users/2
+vậy ta đã có id của thong20 là 2 trên address
+Để lấy giá trị trong express ta sữ dụng cú pháp:
+:<tên_biến>
+và req.params để lấy giá trị của <tên_biến>
+
+Khi ta click vào nút View, ta có address: localhost:3000/users/2
+vậy 2 là giá trị của key tên là id (mở db.json để xác định)
+Vậy trong express code:
+app.get('/users/:uuid', (req, res) => {
+  console.log(req.params)
+})
+=> Kết quả:
+{ uuid: '2' }
+
+===== Express Router ===============================================
+Dùng để chia nhỏ chương trình
+
+
+===== Template Layout ==============================================
+Giống như chèn Component vào 1 component trong React
+vd: ta có file cha.pug cần chèn 1 file con.pug chứa phần nội dung của bài viết
+- ở file cha.pub, ta sử dụng cú pháp: block <tên>
+html
+  head
+  body
+    block menu
+    block content
+    block footer
+
+- Giả sử ta có file con2.pub chứa nội dung cần nằm ở vị trí 'content'
+ta chỉ việc khai báo extends và block content như sau:
+
+extends path_to_cha.pug
+block content
+  h1 Nội_dung_bài_viết
+
+- Ta có thêm file con1.pug chứa navbar nằm ở vị trí 'menu':
+
+extends path_to_cha.pug
+block menu
+  nav
+    navbar Nội_dung_navbar
+
+===== Lưu trữ các file Static trong folder 'public' =================================
+Bài 11: Static files
+Trong file /index.js ta code:
+app.use(express.static('public'))
+
+
+
+
+
+
+
+
+
+
